@@ -1,0 +1,30 @@
+{
+    "name": "hatena-material-theme",
+    "version": "1.0.0",
+    "description": "Material theme for Hatena Blog theme",
+    "author": "cartman",
+    "license": "MIT",
+    "scripts": {
+        "prestart": "npm run build",
+        "start": "npm-run-all -p watch server",
+        "build": "npm-run-all scss autoprefixer",
+        "scss": "node-sass scss/material.scss build/material.css --output-style expanded --indent-width 4 --source-map build/ --include-path node_modules/",
+        "autoprefixer": "postcss --use autoprefixer -r build/material.css",
+        "server": "browser-sync start -c bs-config.js",
+        "watch": "chokidar \"scss/\" -c \"npm run build\""
+    },
+    "devDependencies": {
+        "@material/button": "^1.0.1",
+        "@material/card": "^1.0.0",
+        "@material/chips": "^1.0.1",
+        "@material/drawer": "^1.0.1",
+        "@material/textfield": "^1.0.1",
+        "@material/typography": "^1.0.0",
+        "autoprefixer": "^9.4.10",
+        "browser-sync": "^2.26.3",
+        "chokidar-cli": "^1.2.2",
+        "node-sass": "^4.11.0",
+        "npm-run-all": "^4.1.5",
+        "postcss-cli": "^6.1.2"
+    }
+}

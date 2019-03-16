@@ -1,0 +1,9 @@
+.archive-entry{
+  @import '_archiveCategory';
+
+  .social-buttons{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+}

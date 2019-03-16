@@ -1,0 +1,43 @@
+@import "../_variables";
+@import "@material/typography/_mixins";
+
+
+// glonavi
+@import '_globalheader';
+
+/** #container **/
+#container {
+    // layout
+    @import '_layout';
+
+    // link and button
+    @import "_link_btn";
+
+    // blog-title
+    @import '_blogtitle';
+
+    // sidebar
+    @import "_sidebar";
+
+    // article
+    @import "_article";
+
+    // list
+    @import '_list';
+
+    padding-top: 37px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+
+    @each $key, $value in $typography-base {
+      #{$key}: $value;
+    }
+
+    // 小画面
+    @media screen and (max-width: 896px) {
+     }
+
+}
+
+// footer
+@import "_footer";

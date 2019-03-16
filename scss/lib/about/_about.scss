@@ -1,0 +1,42 @@
+@import "../_variables";
+
+// glonavi
+// @import '_globalheader';
+
+/** #container **/
+body.page-about{
+  #container {
+    // layout
+    // @import '_layout';
+    //
+    // // link and button
+    // @import "_link_btn";
+    //
+    // // blog-title
+    // @import '_blogtitle';
+    //
+    // // sidebar
+    // @import "_sidebar";
+    //
+    // // article
+    // @import "_archiveEntry";
+    //
+    // // list
+    // // @import '_list';
+    //
+    // padding-top: 37px;
+    // margin: 0 auto;
+    // padding-bottom: 2rem;
+    //
+    // @each $key, $value in $typography-base {
+    //   #{$key}: $value;
+    // }
+
+    // 小画面
+    @media screen and (max-width: 896px) {
+     }
+  }
+}
+
+// footer
+// @import "_footer";

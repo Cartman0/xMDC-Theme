@@ -1,0 +1,138 @@
+@import '../_variables';
+@import "@material/card/mixins";
+@import "@material/typography/_mixins";
+
+// postcss-bem-linter: define card
+$query: mdc-feature-all();
+$feat-color: mdc-feature-create-target($query, color);
+$feat-structure: mdc-feature-create-target($query, structure);
+
+article.entry,
+.archive-entry{
+  // mdc-card
+  @include mdc-card-shape-radius(medium, $query: $query);
+  @include mdc-card-fill-color(surface, $query);
+  @include mdc-elevation(1, $query: $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    @include mdc-card-container-layout_;
+  }
+
+  margin-bottom:1rem;
+
+  .entry-header,
+  .archive-entry-header{
+    padding: 1rem;
+
+    >.entry-date{
+      @each $key, $value in $mdc-typography-base {
+          #{$key}: $value;
+      }
+      // 6
+      font-size: 1.25rem; // 20sp
+      line-height: 2rem;// 32sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular);
+      letter-spacing: mdc-typography-get-letter-spacing_(.25, 1.25);
+      text-decoration: inherit;
+      text-transform: inherit;
+
+      >a{
+        font-size: inherit;
+      }
+    }
+
+    >.entry-title{
+      @include typography("headline2");
+      margin: 0;
+      > a {
+        @include mdc-button-base_($query);
+        @include mdc-button-shape-radius(small, $query: $query);
+        @include mdc-button-container-fill-color(transparent, $query);
+        @include mdc-button-ink-color(primary, $query);
+
+        @include mdc-ripple-surface($query);
+        @include mdc-ripple-radius-bounded($query: $query);
+        @include mdc-states(primary, false, $query);
+
+        text-transform: none;
+        height: auto;
+        font-size:inherit;
+      }
+    }
+  }
+
+  // category
+  @import "_category";
+
+  // social-buttons
+  .social-buttons{
+    display:flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    align-items:center;
+
+    > * {
+      margin-right: 1rem;
+    }
+  }
+
+  // content
+  .entry-content,
+  .archive-entry-body {
+    padding: 0 1rem;
+    color: rgba(0,0,0,.54);
+    color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+
+
+    // headline
+    h1{
+      @include typography('headline2');
+    }
+    h2{
+      @include typography('headline3');
+    }
+    h3{
+      @include typography('headline4');
+    }
+    h4{
+      @include typography('headline5');
+    }
+    h5{
+      @include typography('headline6');
+    }
+    h6{
+      @include typography('subtitle1');
+    }
+  }
+  .entry-footer{
+      padding: 1rem;
+      color: rgba(0,0,0,.54);
+      color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+
+      .entry-footer-section{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0;
+        margin-bottom: .5rem;
+      }
+  }
+
+
+  // comment
+  .comment-box {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+
+    .comment{
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+  }
+}

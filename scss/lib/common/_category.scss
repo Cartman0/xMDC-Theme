@@ -1,0 +1,45 @@
+@import "@material/animation/functions";
+@import "@material/checkbox/functions";
+@import "@material/checkbox/variables";
+@import "@material/ripple/common";
+@import "@material/ripple/mixins";
+@import "@material/theme/mixins";
+@import "@material/typography/mixins";
+@import "@material/chips/mixins";
+@import "@material/chips/variables";
+
+.entry-categories,
+.categories {
+  margin: .5rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.entry-category-link,
+.archive-category-link {
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-chip-shape-radius(50%);
+  @include mdc-chip-fill-color($mdc-chip-fill-color-default);
+  @include mdc-chip-ink-color($mdc-chip-ink-color-default);
+  @include mdc-typography(body2);
+  @include mdc-chip-height($mdc-chip-height-default);
+  @include mdc-chip-leading-icon-margin();
+
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  padding: $mdc-chip-vertical-padding $mdc-chip-horizontal-padding;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    @include mdc-theme-prop(color, on-surface);
+  }
+
+  +.entry-category-link{
+    margin-left: .5rem;
+  }
+}

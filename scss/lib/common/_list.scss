@@ -1,0 +1,33 @@
+// @import "@material/list/_mixins";
+//
+// $query: mdc-feature-all();
+// $feat-structure: mdc-feature-create-target($query, structure);
+//
+// ul, ol{
+//   @include mdc-list-base_($query);
+//   display: flex;
+//   flex-flow: column;
+//   list-style-type: inherit;
+// }
+//
+// ul li, ol li{
+//   @include mdc-feature-targets($feat-structure) {
+//     @include mdc-list-item-base_;
+//     height: auto;
+//     // flex-flow: column;
+//     // align-items: flex-start;
+//     list-style-position: inside;
+//     display: list-item;
+//     overflow: visible;
+//   }
+// }
+// ul li{
+//   list-style-type: disc;
+// }
+// ol li{
+//   list-style-type: decimal;
+// }
+
+dl > dd + dt {
+  margin-top: 1rem;
+}

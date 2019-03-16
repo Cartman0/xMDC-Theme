@@ -1,0 +1,57 @@
+@import '@material/button/_mixins';
+
+$query: mdc-feature-all();
+$feat-color: mdc-feature-create-target($query, color);
+$feat-structure: mdc-feature-create-target($query, structure);
+
+// postcss-bem-linter: define button,
+*:not(#title):not(.entry-title):not(.entry-categories):not(.categories):not([itemtype="http://schema.org/Photograph"]):not(.hatena-star-star-container):not(.comment-box):not(.hatena-module-title):not(.hatena-module-body):not(.hatena-follow-button-box) {
+  >a:not(.entry-see-more){
+      @include mdc-button-base_($query);
+      @include mdc-button-shape-radius(small, $query: $query);
+      @include mdc-button-container-fill-color(transparent, $query);
+      @include mdc-button-ink-color(primary, $query);
+
+      @include mdc-ripple-surface($query);
+      @include mdc-ripple-radius-bounded($query: $query);
+      @include mdc-states(primary, false, $query);
+
+      text-transform: none;
+      height: auto;
+      scroll-behavior:smooth;
+  }
+}
+
+// comment btn
+.comment-box {
+
+  a.leave-comment-title{
+    @include mdc-button-base_($query);
+    @include mdc-button-shape-radius(small, $query: $query);
+    @include mdc-button--filled_($query);
+    @include mdc-button-container-fill-color(primary, $query);
+    @include mdc-button-ink-color(on-primary, $query);
+
+    @include mdc-button--raised_($query);
+  }
+}
+
+// more
+.entry-content{
+  a.entry-see-more{
+      @include mdc-button-base_($query);
+      @include mdc-button-shape-radius(small, $query: $query);
+      @include mdc-button--filled_($query);
+      @include mdc-button-container-fill-color(primary, $query);
+      @include mdc-button-ink-color(on-primary, $query);
+
+      @include mdc-button--raised_($query);
+
+      float: right;
+
+      &::after{
+        clear: both;
+      }
+  }
+
+}
